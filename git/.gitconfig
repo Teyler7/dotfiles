@@ -1,0 +1,27 @@
+# Base
+[include]
+    path = ~/.git-work.conf
+# dotfiles
+[includeIf "gitdir:~/dotfiles/"]
+    path = ~/.git-personal.conf
+# Teyler7 Projects
+[includeIf "gitdir:~/GitHub/Teyler7/"]
+    path = ~/.git-personal.conf
+[core]
+	editor = /Users/teyler-pe/.local/bin/lvim
+
+#[user]
+  # signingkey = ssh-ed25519 keygoeshere
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
+
+[branch]
+	sort = -committerdate
+[diff]
+	ignoreWhitespace = true
+[color]
+	ui = auto
