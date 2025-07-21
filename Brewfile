@@ -1,6 +1,7 @@
 brew "stow"
 brew "fzf"
 brew "rbenv"
+brew "node"
 brew "rust"
 brew "starship"
 brew "neovim"
