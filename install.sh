@@ -12,9 +12,12 @@ brew bundle --file=Brewfile
 echo "Packages installed 📦"
 
 # Stow directories
+stow ghostty
 stow git
 stow ssh
 stow zsh
+
+stow -d . ghostty git ssh zsh
 
 # Install useful key bindings and fuzzy completion
 $(brew --prefix)/opt/fzf/install
