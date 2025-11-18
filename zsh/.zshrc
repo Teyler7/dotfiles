@@ -68,12 +68,10 @@ lg()
 alias jk="jj undo"
 
 # Poll Everywhere
-alias cdpe="cd /Users/teyler-pe/github/polleverywhere"
-alias cdra="cd /Users/teyler-pe/github/polleverywhere/rails_app"
-alias cdsl="cd /Users/teyler-pe/github/polleverywhere/singularity"
-alias cdar="cd /Users/teyler-pe/github/polleverywhere/artemis"
-
-alias lvim="/Users/teyler-pe/.local/bin/lvim"
+alias cdpe="cd ~/github/polleverywhere"
+alias cdra="cd ~/github/polleverywhere/rails_app"
+alias cdsl="cd ~/teyler-pe/github/polleverywhere/singularity"
+alias cdar="cd ~/github/polleverywhere/artemis"
 
 # pe2 cli
 export PATH="$HOME/.pollev/bin:$PATH"
