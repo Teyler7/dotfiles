@@ -25,7 +25,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Homebrew
-export PATH=/opt/homebrew/bin:$PATH
+# export PATH=/opt/homebrew/bin:$PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
@@ -61,12 +62,10 @@ lg()
 [[ -f ~/.secrets ]] && source ~/.secrets
 
 # Poll Everywhere
-alias cdpe="cd /Users/teyler-pe/github/polleverywhere"
-alias cdra="cd /Users/teyler-pe/github/polleverywhere/rails_app"
-alias cdsl="cd /Users/teyler-pe/github/polleverywhere/singularity"
-alias cdar="cd /Users/teyler-pe/github/polleverywhere/artemis"
-
-alias lvim="/Users/teyler-pe/.local/bin/lvim"
+alias cdpe="cd ~/github/polleverywhere"
+alias cdra="cd ~/github/polleverywhere/rails_app"
+alias cdsl="cd ~/teyler-pe/github/polleverywhere/singularity"
+alias cdar="cd ~/github/polleverywhere/artemis"
 
 # pe2 cli
 export PATH="$HOME/.pollev/bin:$PATH"

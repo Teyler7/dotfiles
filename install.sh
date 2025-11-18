@@ -66,6 +66,12 @@ if [ ! -d "/Users/${USER}/.oh-my-zsh" ]; then
         echo "Oh My ZSH is already installed ✅" #duplicated code
 fi
 
+echo "Installing starship"
+curl -sS https://starship.rs/install.sh | sh
+
+# If for some reason it installed a ./.config/starship.toml... remove it for base styles
+rm ~/.config/startship.toml
+
 echo "Cleaning up 🧹"
 brew cleanup
 
