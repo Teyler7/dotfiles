@@ -14,10 +14,11 @@ echo "Packages installed 📦"
 # Stow directories
 stow ghostty
 stow git
+stow jj
 stow ssh
 stow zsh
 
-stow -d . ghostty git ssh zsh
+stow -d . ghostty git jj ssh zsh
 
 # Install useful key bindings and fuzzy completion
 $(brew --prefix)/opt/fzf/install
