@@ -25,7 +25,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Homebrew
-export PATH=/opt/homebrew/bin:$PATH
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
@@ -59,6 +63,9 @@ lg()
 
 # Secrets
 [[ -f ~/.secrets ]] && source ~/.secrets
+
+# jj
+alias jk="jj undo"
 
 # Poll Everywhere
 alias cdpe="cd /Users/teyler-pe/github/polleverywhere"
