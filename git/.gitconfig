@@ -21,11 +21,10 @@
     gpgsign = true
 [gpg "ssh"]
     allowedSignersFile = ~/.config/git/allowed_signers
-	program = /opt/1Password/op-ssh-sign
-
+	  program = /opt/1Password/op-ssh-sign
 [branch]
-        sort = -committerdate
+    sort = -committerdate
 [diff]
-        ignoreWhitespace = true
+    ignoreWhitespace = true
 [color]
-        ui = auto
+    ui = auto
