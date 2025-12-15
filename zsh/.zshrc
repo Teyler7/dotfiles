@@ -34,6 +34,9 @@ fi
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
+# amp
+export PATH="$HOME/.local/bin:$PATH"
+
 # Language
 export LANG=en_US.UTF-8
 
