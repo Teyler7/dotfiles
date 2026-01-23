@@ -43,6 +43,9 @@ export LANG=en_US.UTF-8
 # rbenv
 eval "$(rbenv init - zsh)"
 
+# Cargo Bin
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Starship
 eval "$(starship init zsh)"
 
@@ -69,6 +72,85 @@ lg()
 
 # jj
 alias jk="jj undo"
+
+jmerge() {
+  jj git fetch &&
+  jj rebase -d "trunk()" || return $?
+
+  local -a bookmarks=(${(f)"$(jj bookmark list -r @ -T 'name ++ "\n"' | grep -v '^push-' | sort -u)"})
+  if (( ${#bookmarks} )); then
+    jj git push ${bookmarks[@]/#/-b}
+  else
+    jj git push -c @
+  fi &&
+
+  USE_JJ=true bin/ci &&
+  jj bookmark set main -r "latest(heads(::@ & ~empty()))" &&
+  jj git push -b main || return $?
+
+  if jj bookmark list | grep -q 'push-'; then
+    jj bookmark delete glob:"push-*" &&
+    jj git push --deleted
+  fi
+}
+
+# Wrapper so `gh` works both in plain Git repos and jj workspaces (no .git dir)
+function jh() {
+  emulate -L zsh
+  setopt pipefail
+
+  local git_dir work_tree is_jj=0
+  if git_dir=$(git rev-parse --absolute-git-dir 2>/dev/null) \
+     && work_tree=$(git rev-parse --show-toplevel 2>/dev/null); then
+    # Check if this is actually a jj-managed repo
+    if jj git root &>/dev/null; then
+      is_jj=1
+    fi
+  else
+    if ! git_dir=$(jj git root 2>/dev/null); then
+      echo "jh: not inside a git or jj repository" >&2
+      return 1
+    fi
+    is_jj=1
+    if ! work_tree=$(jj workspace root 2>/dev/null); then
+      work_tree=$(dirname "$git_dir")
+    fi
+  fi
+
+  local head_file="$git_dir/HEAD"
+  local head_contents restore_head=0 branch_commit branch_name
+
+  if [[ -f $head_file ]]; then
+    head_contents=$(<"$head_file")
+    if [[ $head_contents != ref:\ * ]]; then
+      # For jj repos, get current commit from jj; otherwise use HEAD file
+      if (( is_jj )); then
+        branch_commit=$(jj log -r @ --no-graph -T 'commit_id' 2>/dev/null)
+      else
+        branch_commit=${head_contents//$'\n'/}
+      fi
+
+      branch_name=$(
+        GIT_DIR="$git_dir" git for-each-ref --format='%(refname:short)' \
+          --points-at "$branch_commit" refs/heads 2>/dev/null | head -n1
+      )
+
+      if [[ -n $branch_name ]]; then
+        printf 'ref: refs/heads/%s\n' "$branch_name" >| "$head_file"
+        restore_head=1
+      fi
+    fi
+  fi
+
+  GIT_DIR="$git_dir" GIT_WORK_TREE="$work_tree" gh "$@"
+  local exit_code=$?
+
+  if (( restore_head )); then
+    printf '%s\n' "$head_contents" >| "$head_file"
+  fi
+
+  return $exit_code
+}
 
 # Poll Everywhere
 alias cdpe="cd ~/github/polleverywhere"
@@ -99,6 +181,9 @@ function gspin() {
 function gpop() {
   git stash list | fzf --preview 'git stash show --color -p $(cut -d: -f1 <<< {})'| cut -d: -f1 | xargs git stash pop
 }
+
+# postgresql
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # Uncomment to profile
 # zprof
