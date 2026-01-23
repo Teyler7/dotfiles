@@ -17,6 +17,10 @@ email = "teyler@hey.com"
 
 [ui]
 editor = "nvim"
+default-command = "l"
+
+[aliases]
+l = ["log", "--no-pager", "-n", "5"]
 
 [revsets]
 short-prefixes = '(mine() & committer_date(after:"1 day ago")) | (main::@)::'
