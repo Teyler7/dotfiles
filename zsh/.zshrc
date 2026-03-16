@@ -70,6 +70,27 @@ lg()
 # jj
 alias jk="jj undo"
 
+jmerge() {
+  jj git fetch &&
+  jj rebase -d "trunk()" || return $?
+
+  local -a bookmarks=(${(f)"$(jj bookmark list -r @ -T 'name ++ "\n"' | grep -v '^push-' | sort -u)"})
+  if (( ${#bookmarks} )); then
+    jj git push ${bookmarks[@]/#/-b}
+  else
+    jj git push -c @
+  fi &&
+
+  USE_JJ=true bin/ci &&
+  jj bookmark set main -r "latest(heads(::@ & ~empty()))" &&
+  jj git push -b main || return $?
+
+  if jj bookmark list | grep -q 'push-'; then
+    jj bookmark delete glob:"push-*" &&
+    jj git push --deleted
+  fi
+}
+
 # Poll Everywhere
 alias cdpe="cd ~/github/polleverywhere"
 alias cdra="cd ~/github/polleverywhere/rails_app"
@@ -102,3 +123,8 @@ function gpop() {
 
 # Uncomment to profile
 # zprof
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/teyler-pe/.lmstudio/bin"
+# End of LM Studio CLI section
+
