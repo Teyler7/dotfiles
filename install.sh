@@ -18,7 +18,7 @@ stow jj
 stow ssh
 stow zsh
 
-stow -d . ghostty git jj ssh zsh
+stow -d . amp ghostty git jj ssh zsh
 
 # Install useful key bindings and fuzzy completion
 $(brew --prefix)/opt/fzf/install
