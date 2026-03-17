@@ -9,19 +9,12 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
-  # MacOS 
-  # program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
-  # Linux
   allowedSignersFile = ~/.config/git/allowed_signers
-  program = /opt/1Password/op-ssh-sign
+  program = ~/.config/git/op-ssh-sign
 [commit]
-    gpgsign = true
+  gpgsign = true
 [tag]
-    gpgsign = true
-[gpg "ssh"]
-    allowedSignersFile = ~/.config/git/allowed_signers
-	  program = /opt/1Password/op-ssh-sign
+  gpgsign = true
 [branch]
     sort = -committerdate
 [diff]
