@@ -71,6 +71,7 @@ lg()
 [[ -f ~/.secrets ]] && source ~/.secrets
 
 # jj
+export PATH="$HOME/.config/git:$PATH" # jj doesn't expand ~ so op-ssh-sign must be on PATH
 alias jk="jj undo"
 
 jmerge() {
