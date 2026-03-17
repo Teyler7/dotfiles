@@ -9,7 +9,7 @@
   format = ssh
 [gpg "ssh"]
   allowedSignersFile = ~/.config/git/allowed_signers
-  program = ~/.config/git/op-ssh-sign
+  program = op-ssh-sign
 [commit]
   gpgsign = true
 
