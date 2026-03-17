@@ -1,11 +1,10 @@
 [core]
-  editor = nvim
+	editor = nvim
+
 [user]
   name = Teyler Halama
   email = teyler@hey.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMAg0bo8XRuPNC6vvtTWhiFBr8do+wCO6k4XRkRCDsgf
-
-# For this section, use the "Setup Signing" button on the 1Pass SSH Key record
 [gpg]
   format = ssh
 [gpg "ssh"]
@@ -13,11 +12,10 @@
   program = ~/.config/git/op-ssh-sign
 [commit]
   gpgsign = true
-[tag]
-  gpgsign = true
+
 [branch]
-    sort = -committerdate
+	sort = -committerdate
 [diff]
-    ignoreWhitespace = true
+	ignoreWhitespace = true
 [color]
-    ui = auto
+	ui = auto
