@@ -154,8 +154,9 @@ function jh() {
 # Poll Everywhere
 alias cdpe="cd ~/github/polleverywhere"
 alias cdra="cd ~/github/polleverywhere/rails_app"
-alias cdsl="cd ~/teyler-pe/github/polleverywhere/singularity"
+alias cdsl="cd ~/github/polleverywhere/singularity"
 alias cdar="cd ~/github/polleverywhere/artemis"
+alias cddf="cd ~/dotfiles"
 
 # pe2 cli
 export PATH="$HOME/.pollev/bin:$PATH"
