@@ -1,3 +1,8 @@
 {
-  "git.commit.coauthor.enabled": false
+  "git.commit.coauthor.enabled": false,
+  "amp.permissions": [
+    { "tool": "Bash", "matches": { "cmd": ["bin/rails *", "bin/rubocop *", "bin/biome *", "bin/flatulint *", "bin/check_coverage *", "bin/dev", "bin/loadtest/*", "bin/kcop *", "bin/decode_signed_stream_name *", "bundle *", ".agents/skills/ruby-prism/scripts/prism *"] }, "action": "allow" },
+    { "tool": "Bash", "matches": { "cmd": ["*rm -rf*", "*sudo*"] }, "action": "ask" },
+    { "tool": "Bash", "matches": { "cmd": ["jj *", "stow *"] }, "action": "allow" }
+  ]
 }
