@@ -62,6 +62,10 @@ stow jj
 # stow ssh
 stow zsh
 
+if [ -f /etc/arch-release ]; then
+  stow hyprland
+fi
+
 stow -d . amp ghostty git jj zsh
 
 # Install useful key bindings and fuzzy completion
