@@ -81,7 +81,9 @@ echo "Installing starship"
 curl -sS https://starship.rs/install.sh | sh
 
 # If for some reason it installed a ./.config/starship.toml... remove it for base styles
-rm ~/.config/startship.toml
+rm -f ~/.config/starship.toml
+
+stow starship
 
 # Install LazyVim
 echo "Installing LazyVim 🚀"
