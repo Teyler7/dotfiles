@@ -83,8 +83,6 @@ curl -sS https://starship.rs/install.sh | sh
 # If for some reason it installed a ./.config/starship.toml... remove it for base styles
 rm -f ~/.config/starship.toml
 
-stow starship
-
 # Install LazyVim
 echo "Installing LazyVim 🚀"
 if [ ! -d "$HOME/.config/nvim" ]; then
