@@ -1,7 +1,27 @@
 {
   "git.commit.coauthor.enabled": false,
   "amp.permissions": [
-    { "tool": "Bash", "matches": { "cmd": ["*rm -rf*", "*sudo*"] }, "action": "ask" },
-    { "tool": "*", "action": "allow" }
-  ]
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": [
+          "*rm -rf*",
+          "*sudo*"
+        ]
+      },
+      "action": "ask"
+    },
+    {
+      "tool": "*",
+      "action": "allow"
+    }
+  ],
+  "amp.mcpServers": {
+    "uidotsh": {
+      "url": "https://ui.sh/mcp?agent=amp",
+      "headers": {
+        "Authorization": "Bearer ${UIDOTSH_TOKEN}"
+      }
+    }
+  }
 }

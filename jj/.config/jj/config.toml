@@ -1,5 +1,8 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
+[git]
+write-change-id-header = true
+
 [signing]
 backend   = "ssh"
 behavior  = "own"
