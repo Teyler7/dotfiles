@@ -183,12 +183,17 @@ function gpop() {
 }
 
 # postgresql
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 
 # Uncomment to profile
 # zprof
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/teyler-pe/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/teyler-pe/.lmstudio/bin"
 # End of LM Studio CLI section
 

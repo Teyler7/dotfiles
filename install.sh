@@ -56,6 +56,7 @@ fi
 # if [ -f "$HOME/.ssh/config" ] && [ ! -L "$HOME/.ssh/config" ]; then
 #     mv "$HOME/.ssh/config" "$HOME/.ssh/config.bak"
 # fi
+stow claude
 stow ghostty
 stow git
 stow jj
@@ -66,7 +67,7 @@ if [ -f /etc/arch-release ]; then
   stow hyprland
 fi
 
-stow -d . amp ghostty git jj zsh
+stow -d . amp claude ghostty git jj zsh
 
 # Install useful key bindings and fuzzy completion
 $(brew --prefix)/opt/fzf/install

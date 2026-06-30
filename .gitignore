@@ -1,3 +1,13 @@
 .DS_Store
 jj/.config/jj/repos/
+
+# Amp sidecar metadata
+*.amp-write-meta
+
+# Native/versioned binaries — keep shell scripts only
 git/.local/bin/amp
+git/.local/bin/claude
+git/.local/bin/helm-*
+git/.local/bin/kubectl-*
+git/.local/bin/tsh-*
+git/.local/bin/pogo

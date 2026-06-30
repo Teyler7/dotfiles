@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(rm -rf*)",
+      "Bash(* rm -rf*)",
+      "Bash(sudo*)",
+      "Bash(* sudo*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "theme": "dark-ansi",
+  "skipDangerousModePermissionPrompt": true,
+  "preferredNotifChannel": "notifications_disabled"
+}
