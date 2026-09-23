@@ -4,10 +4,6 @@ jj/.config/jj/repos/
 # Amp sidecar metadata
 *.amp-write-meta
 
-# Native/versioned binaries — keep shell scripts only
-git/.local/bin/amp
-git/.local/bin/claude
-git/.local/bin/helm-*
-git/.local/bin/kubectl-*
-git/.local/bin/tsh-*
-git/.local/bin/pogo
+# ~/.local/bin is stow-folded into this dir; only track our own scripts
+git/.local/bin/*
+!git/.local/bin/op-ssh-sign
