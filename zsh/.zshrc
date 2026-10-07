@@ -73,6 +73,9 @@ lg()
 # jj
 alias jk="jj undo"
 
+# queue
+alias q="queue"
+
 # github
 alias shipit="gh pr create -f && gh pr merge --auto"
 
