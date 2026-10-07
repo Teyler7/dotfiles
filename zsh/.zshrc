@@ -73,6 +73,9 @@ lg()
 # jj
 alias jk="jj undo"
 
+# github
+alias shipit="gh pr create -f && gh pr merge --auto"
+
 jmerge() {
   jj git fetch &&
   jj rebase -d "trunk()" || return $?
@@ -157,6 +160,8 @@ alias cdra="cd ~/github/polleverywhere/rails_app"
 alias cdsl="cd ~/github/polleverywhere/singularity"
 alias cdar="cd ~/github/polleverywhere/artemis"
 alias cddf="cd ~/dotfiles"
+alias dbm="bin/rails db:migrate:primary"
+alias dbms="bin/rails db:migrate:status:primary"
 
 # pe2 cli
 export PATH="$HOME/.pollev/bin:$PATH"
