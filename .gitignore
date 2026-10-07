@@ -7,3 +7,4 @@ jj/.config/jj/repos/
 # ~/.local/bin is stow-folded into this dir; only track our own scripts
 git/.local/bin/*
 !git/.local/bin/op-ssh-sign
+.claude/settings.local.json
