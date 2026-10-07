@@ -1,4 +1,7 @@
 {
+  "attribution": {
+    "pr": ""
+  },
   "permissions": {
     "ask": [
       "Bash(rm -rf*)",
@@ -6,9 +9,49 @@
       "Bash(sudo*)",
       "Bash(* sudo*)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "auto"
   },
-  "theme": "dark-ansi",
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/teyler-pe/.local/bin/queue hook"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/teyler-pe/.local/bin/queue hook"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/statusline.sh\"",
+    "padding": 0,
+    "refreshInterval": 2
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark-ansi",
   "preferredNotifChannel": "notifications_disabled"
 }
